@@ -2,11 +2,11 @@
 
     include 'dbh.php';
     
-    class Account extends dbh {
+    class Item extends dbh {
 
-        protected function getAllAccounts() {
+        protected function getAllItems() {
             $sql = "SELECT *
-            FROM account";
+            FROM item";
             $stmt = $this->conn()->prepare($sql);
             $stmt->execute();
 
@@ -15,9 +15,9 @@
             return $counts;
         }
 
-        protected function getAccountByID($id) {
+        protected function getItemByID($id) {
             $sql = "SELECT *
-            FROM account WHERE id LIKE ?";
+            FROM item WHERE id LIKE ?";
             $stmt = $this->conn()->prepare($sql);
             $stmt->execute([$id]);
 
@@ -27,24 +27,24 @@
         }
 
         // protected function updateCount($params) {
-        //     $sql = "UPDATE account SET Name = ?, Continent = ?,
+        //     $sql = "UPDATE item SET Name = ?, Continent = ?,
         //      SurfaceArea = ?, Population = ?, GovernmentForm = ?
         //         WHERE Code = ?";
         //     $stmt = $this->conn()->prepare($sql);
         //     $stat = $stmt->execute($params);
         // }
 
-        protected function insertAccount($params) {
-            $accounts = $this->getAllAccounts();
+        protected function insertItem($params) {
+            $items = $this->getAllItems();
             
-            $sql = "INSERT INTO account (first_name, last_name, address, contact_no)
+            $sql = "INSERT INTO item (name, description, price, img_path)
                     VALUES (?, ?, ?, ?)";
             $stmt = $this->conn()->prepare($sql);
             $stat = $stmt->execute($params);
         }
 
-        protected function deleteAccount($id) {
-            $sql = "DELETE FROM account WHERE id = ?";
+        protected function deleteItem($id) {
+            $sql = "DELETE FROM item WHERE id = ?";
             $stmt = $this->conn()->prepare($sql);
             $stat = $stmt->execute([$id]);
         }

@@ -2,11 +2,11 @@
 
     include 'dbh.php';
     
-    class Account extends dbh {
+    class Request extends dbh {
 
-        protected function getAllAccounts() {
+        protected function getAllRequests() {
             $sql = "SELECT *
-            FROM account";
+            FROM request";
             $stmt = $this->conn()->prepare($sql);
             $stmt->execute();
 
@@ -15,9 +15,9 @@
             return $counts;
         }
 
-        protected function getAccountByID($id) {
+        protected function getRequestByID($id) {
             $sql = "SELECT *
-            FROM account WHERE id LIKE ?";
+            FROM request WHERE id LIKE ?";
             $stmt = $this->conn()->prepare($sql);
             $stmt->execute([$id]);
 
@@ -27,24 +27,24 @@
         }
 
         // protected function updateCount($params) {
-        //     $sql = "UPDATE account SET Name = ?, Continent = ?,
+        //     $sql = "UPDATE request SET Name = ?, Continent = ?,
         //      SurfaceArea = ?, Population = ?, GovernmentForm = ?
         //         WHERE Code = ?";
         //     $stmt = $this->conn()->prepare($sql);
         //     $stat = $stmt->execute($params);
         // }
 
-        protected function insertAccount($params) {
-            $accounts = $this->getAllAccounts();
+        protected function insertRequest($params) {
+            $requests = $this->getAllRequests();
             
-            $sql = "INSERT INTO account (first_name, last_name, address, contact_no)
+            $sql = "INSERT INTO request (account_id, item_id, quantity, amount)
                     VALUES (?, ?, ?, ?)";
             $stmt = $this->conn()->prepare($sql);
             $stat = $stmt->execute($params);
         }
 
-        protected function deleteAccount($id) {
-            $sql = "DELETE FROM account WHERE id = ?";
+        protected function deleteRequest($id) {
+            $sql = "DELETE FROM request WHERE id = ?";
             $stmt = $this->conn()->prepare($sql);
             $stat = $stmt->execute([$id]);
         }
