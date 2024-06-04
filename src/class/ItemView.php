@@ -1,8 +1,10 @@
 <?php 
 
+    include_once 'Item.php';
+
     class ItemView extends Item {
 
-        public function getAllAccs() {
+        public function getAllItem() {
             return $this->getAllItems();
         }
 

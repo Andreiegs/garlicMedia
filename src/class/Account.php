@@ -1,4 +1,5 @@
 <?php 
+    session_start();
 
     include 'dbh.php';
     
@@ -26,6 +27,22 @@
             return $counts;
         }
 
+        protected function logAccount($params) {            
+            $sql = "SELECT *
+            FROM account WHERE email = ? && password = ?";
+            $stmt = $this->conn()->prepare($sql);
+            $stmt->execute($params);
+
+            $counts = $stmt->fetchAll();
+
+            if($counts != false) {
+                $_SESSION['student_id'] = $counts[0]['id'];    
+                return true;
+            }
+
+            return false;
+        }
+
         // protected function updateCount($params) {
         //     $sql = "UPDATE account SET Name = ?, Continent = ?,
         //      SurfaceArea = ?, Population = ?, GovernmentForm = ?
@@ -37,8 +54,8 @@
         protected function insertAccount($params) {
             $accounts = $this->getAllAccounts();
             
-            $sql = "INSERT INTO account (first_name, last_name, address, contact_no)
-                    VALUES (?, ?, ?, ?)";
+            $sql = "INSERT INTO account (first_name, last_name, email, password, address, contact_no)
+                    VALUES (?, ?, ?, ?, ?, ?)";
             $stmt = $this->conn()->prepare($sql);
             $stat = $stmt->execute($params);
         }

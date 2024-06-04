@@ -37,8 +37,8 @@
         protected function insertRequest($params) {
             $requests = $this->getAllRequests();
             
-            $sql = "INSERT INTO request (account_id, item_id, quantity, amount)
-                    VALUES (?, ?, ?, ?)";
+            $sql = "INSERT INTO request (account_id, item_id, quantity, amount, status)
+                    VALUES (?, ?, ?, ?, 'Pending')";
             $stmt = $this->conn()->prepare($sql);
             $stat = $stmt->execute($params);
         }

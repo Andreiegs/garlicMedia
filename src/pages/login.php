@@ -1,3 +1,7 @@
+<?php 
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,7 +41,11 @@
                 success: function (data) {
                     if(data != false) {
 						// alert("Success! " + data);
-						window.location.replace("shop.html");
+                        if(data == "true") {
+						    window.location.replace("request.php");
+                        } else {
+                            alert("Wrong credentials.");
+                        }
 					} else {
 						alert("Failed " + data);
 					}

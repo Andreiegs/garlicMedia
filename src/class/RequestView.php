@@ -1,5 +1,7 @@
 <?php 
 
+include_once 'Request.php';
+
     class RequestView extends Request {
 
         public function getAllAccs() {
