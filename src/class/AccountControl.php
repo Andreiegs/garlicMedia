@@ -1,16 +1,17 @@
 <?php 
 
-class WorldControl extends World {
-    public function updateCountry($params) {
-        $this->updateCount($params);
+class AccountControl extends Account {
+
+    // public function updateAcc($params) {
+    //     $this->updateAccount($params);
+    // }
+
+    public function insertAcc($params) {
+        $this->insertAccount($params);
     }
 
-    public function insertCountry($params) {
-        $this->insertCount($params);
-    }
-
-    public function deleteCountry($params) {
-        $this->deleteCount($params);
+    public function deleteAcc($params) {
+        $this->deleteAccount($params);
     }
 }
 
