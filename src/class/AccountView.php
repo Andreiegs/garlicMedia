@@ -1,19 +1,14 @@
 <?php 
 
-    class WorldView extends World {
+    class AccountView extends Account {
 
-        public function getAllCountries() {
-            return $this->getAllCounts();
+        public function getAllAccs() {
+            return $this->getAllAccounts();
         }
 
-        public function getCountryByCode($countryCode) {
-            return $this->getCountryByID($countryCode);
+        public function getAccByCode($countryCode) {
+            return $this->getAccountByID($countryCode);
         }
-        
-        public function searchCountry($countryName) {
-            return $this->searchCount($countryName);
-        }
-
     }
 
 ?>
