@@ -26,6 +26,21 @@
             return $counts;
         }
 
+        protected function logAccount($params) {
+            $sql = "SELECT *
+            FROM account WHERE email = ? && password = ?";
+            $stmt = $this->conn()->prepare($sql);
+            $stmt->execute($params);
+
+            $counts = $stmt->fetchAll();
+
+            if($counts != false) {
+                return true;
+            }
+
+            return $counts;
+        }
+
         // protected function updateCount($params) {
         //     $sql = "UPDATE account SET Name = ?, Continent = ?,
         //      SurfaceArea = ?, Population = ?, GovernmentForm = ?
@@ -37,8 +52,8 @@
         protected function insertAccount($params) {
             $accounts = $this->getAllAccounts();
             
-            $sql = "INSERT INTO account (first_name, last_name, address, contact_no)
-                    VALUES (?, ?, ?, ?)";
+            $sql = "INSERT INTO account (first_name, last_name, email, password, address, contact_no)
+                    VALUES (?, ?, ?, ?, ?, ?)";
             $stmt = $this->conn()->prepare($sql);
             $stat = $stmt->execute($params);
         }

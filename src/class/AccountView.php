@@ -1,4 +1,5 @@
 <?php 
+    include_once 'Account.php';
 
     class AccountView extends Account {
 
@@ -6,8 +7,12 @@
             return $this->getAllAccounts();
         }
 
-        public function getAccByCode($countryCode) {
-            return $this->getAccountByID($countryCode);
+        public function getAccByCode($id) {
+            return $this->getAccountByID($id);
+        }
+
+        public function logAcc($id) {
+            return $this->logAccount($id);
         }
     }
 
