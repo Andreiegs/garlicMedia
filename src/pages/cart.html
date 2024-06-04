@@ -21,6 +21,8 @@
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 		<link href="../css/tiny-slider.css" rel="stylesheet">
 		<link href="../css/style.css" rel="stylesheet">
+
+		<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 		<title>Garlic Media</title>
 	</head>
 
@@ -30,7 +32,7 @@
 		<nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
 
 			<div class="container">
-				<a class="navbar-brand" href="index.html">Garlic Media<span>.</span></a>
+				<a class="navbar-brand" href="../../index.html">Garlic Media<span>.</span></a>
 
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
@@ -39,12 +41,10 @@
 				<div class="collapse navbar-collapse" id="navbarsFurni">
 					<ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
 						<li class="nav-item ">
-							<a class="nav-link" href="index.html">Home</a>
+							<a class="nav-link" href="../../index.html">Home</a>
 						</li>
 						<li><a class="nav-link" href="shop.html">Shop</a></li>
 						<li><a class="nav-link" href="about.html">About us</a></li>
-						<li><a class="nav-link" href="services.html">Services</a></li>
-						<li><a class="nav-link" href="blog.html">Blog</a></li>
 						<li><a class="nav-link" href="contact.html">Contact us</a></li>
 					</ul>
 
@@ -99,24 +99,97 @@
                             <img src="../images/product-1.png" alt="Image" class="img-fluid">
                           </td>
                           <td class="product-name">
-                            <h2 class="h5 text-black">Product 1</h2>
+                            <h2 class="h5 text-black">T-Shirt</h2>
                           </td>
-                          <td>$49.00</td>
+                          <td>₱500.00</td>
                           <td>
                             <div class="input-group mb-3 d-flex align-items-center quantity-container" style="max-width: 120px;">
                               <div class="input-group-prepend">
-                                <button class="btn btn-outline-black decrease" type="button">&minus;</button>
+                                <button class="btn btn-outline-black decrease" id="product1Decrease" type="button">&minus;</button>
                               </div>
-                              <input type="text" class="form-control text-center quantity-amount" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                              <input type="number" id="product1amount" min="0" class="form-control text-center quantity-amount" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
                               <div class="input-group-append">
-                                <button class="btn btn-outline-black increase" type="button">&plus;</button>
+                                <button class="btn btn-outline-black increase" id="product1Increase" type="button">&plus;</button>
                               </div>
                             </div>
         
                           </td>
-                          <td>$49.00</td>
+                          <td id="priceIndicator1">₱500.00</td>
                           <td><a href="#" class="btn btn-black btn-sm">X</a></td>
                         </tr>
+                        
+                        <tr>
+							<td class="product-thumbnail">
+							  <img src="../images/product-1.png" alt="Image" class="img-fluid">
+							</td>
+							<td class="product-name">
+							  <h2 class="h5 text-black">Polo Shirt</h2>
+							</td>
+							<td>₱750.00</td>
+							<td>
+							  <div class="input-group mb-3 d-flex align-items-center quantity-container" style="max-width: 120px;">
+								<div class="input-group-prepend">
+								  <button class="btn btn-outline-black decrease" id="product2Decrease" type="button">&minus;</button>
+								</div>
+								<input type="number" id="product2amount" min="0" class="form-control text-center quantity-amount" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+								<div class="input-group-append">
+								  <button class="btn btn-outline-black increase" id="product2Increase" type="button">&plus;</button>
+								</div>
+							  </div>
+		  
+							</td>
+							<td id="priceIndicator2">₱750.00</td>
+							<td><a href="#" class="btn btn-black btn-sm">X</a></td>
+						  </tr>
+                        
+						  <tr>
+							<td class="product-thumbnail">
+							  <img src="../images/product-1.png" alt="Image" class="img-fluid">
+							</td>
+							<td class="product-name">
+							  <h2 class="h5 text-black">Hoodie</h2>
+							</td>
+							<td>₱950.00</td>
+							<td>
+							  <div class="input-group mb-3 d-flex align-items-center quantity-container" style="max-width: 120px;">
+								<div class="input-group-prepend">
+								  <button class="btn btn-outline-black decrease" id="product3Decrease" type="button">&minus;</button>
+								</div>
+								<input type="number" id="product3amount" min="0" class="form-control text-center quantity-amount" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+								<div class="input-group-append">
+								  <button class="btn btn-outline-black increase" id="product3Increase" type="button">&plus;</button>
+								</div>
+							  </div>
+		  
+							</td>
+							<td id="priceIndicator3">₱950.00</td>
+							<td><a href="#" class="btn btn-black btn-sm">X</a></td>
+						  </tr>
+                        
+						  <tr>
+							<td class="product-thumbnail">
+							  <img src="../images/product-1.png" alt="Image" class="img-fluid">
+							</td>
+							<td class="product-name">
+							  <h2 class="h5 text-black">Sweatshirt</h2>
+							</td>
+							<td>₱950.00</td>
+							<td>
+							  <div class="input-group mb-3 d-flex align-items-center quantity-container" style="max-width: 120px;">
+								<div class="input-group-prepend">
+								  <button class="btn btn-outline-black decrease" id="product4Decrease" type="button">&minus;</button>
+								</div>
+								<input type="number" id="product4amount" min="0" class="form-control text-center quantity-amount" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+								<div class="input-group-append">
+								  <button class="btn btn-outline-black increase" id="product4Increase" type="button">&plus;</button>
+								</div>
+							  </div>
+		  
+							</td>
+							<td id="priceIndicator4">₱950.00</td>
+							<td><a href="#" class="btn btn-black btn-sm">X</a></td>
+						  </tr>
+                        
                       </tbody>
                     </table>
                   </div>
@@ -127,10 +200,9 @@
                 <div class="col-md-6">
                   <div class="row mb-5">
                     <div class="col-md-6 mb-3 mb-md-0">
-                      <button class="btn btn-black btn-sm btn-block">Update Cart</button>
                     </div>
                     <div class="col-md-6">
-                      <button class="btn btn-outline-black btn-sm btn-block">Continue Shopping</button>
+                      <a href="../../index.html"></a><button class="btn btn-outline-black btn-sm btn-block">Continue Shopping</button></a>
                     </div>
                   </div>
                   <div class="row">
@@ -154,20 +226,12 @@
                           <h3 class="text-black h4 text-uppercase">Cart Totals</h3>
                         </div>
                       </div>
-                      <div class="row mb-3">
-                        <div class="col-md-6">
-                          <span class="text-black">Subtotal</span>
-                        </div>
-                        <div class="col-md-6 text-right">
-                          <strong class="text-black">$230.00</strong>
-                        </div>
-                      </div>
                       <div class="row mb-5">
                         <div class="col-md-6">
                           <span class="text-black">Total</span>
                         </div>
                         <div class="col-md-6 text-right">
-                          <strong class="text-black">$230.00</strong>
+                          <strong class="text-black" id="totalPrice">0</strong>
                         </div>
                       </div>
         
@@ -290,9 +354,58 @@
 		<!-- End Footer Section -->	
 
 
+
 		<script src="../js/bootstrap.bundle.min.js"></script>
 		<script src="../js/tiny-slider.js"></script>
 		<script src="../js/custom.js"></script>
 	</body>
+	<script>
+		$('#product1Increase').on("click", function(){
+			updateValue(500, "#product1amount", "#priceIndicator1");
+		});
+		$('#product1Decrease').on("click", function(){
+			updateValue(500, "#product1amount", "#priceIndicator1");
+		});
+		$('#product1amount').on("change", function(){
+			updateValue(500, "#product1amount", "#priceIndicator1");
+		});
+		$('#product2Increase').on("click", function(){
+			updateValue(750, "#product2amount", "#priceIndicator2");
+		});
+		$('#product2Decrease').on("click", function(){
+			updateValue(750, "#product2amount", "#priceIndicator2");
+		});
+		$('#product2amount').on("change", function(){
+			updateValue(750, "#product2amount", "#priceIndicator2");
+		});
+		$('#product3Increase').on("click", function(){
+			updateValue(950, "#product3amount", "#priceIndicator3");
+		});
+		$('#product3Decrease').on("click", function(){
+			updateValue(950, "#product3amount", "#priceIndicator3");
+		});
+		$('#product3amount').on("change", function(){
+			updateValue(950, "#product3amount", "#priceIndicator3");
+		});
+		$('#product4Increase').on("click", function(){
+			updateValue(950, "#product4amount", "#priceIndicator4");
+		});
+		$('#product4Decrease').on("click", function(){
+			updateValue(950, "#product4amount", "#priceIndicator4");
+		});
+		$('#product4amount').on("change", function(){
+			updateValue(950, "#product4amount", "#priceIndicator4");
+		});
 
+		function updateValue(price, amount, indicator) {
+			const numberBoxValue = parseInt($(amount).val());
+			const newValue = numberBoxValue * price;
+			$(indicator).html("₱" + newValue + ".00");
+			updateTotal();
+		}
+		function updateTotal(){
+			const total = parseInt($("#product1amount").val())*500 + parseInt($("#product2amount").val())*750 + parseInt($("#product3amount").val())*950 + parseInt($("#product4amount").val()*950);
+			$("#totalPrice").html("₱" + total + ".00");
+		}
+	</script>
 </html>
