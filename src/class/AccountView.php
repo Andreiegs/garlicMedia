@@ -1,4 +1,5 @@
 <?php 
+    include_once 'Account.php';
 
     class AccountView extends Account {
 
