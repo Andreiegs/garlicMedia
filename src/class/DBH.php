@@ -3,9 +3,9 @@
     class DBH {
 
         private $host = "localhost";
-        private $user = "AAP";
-        private $pwd = "123456";
-        private $dbName = "garlic_media";
+        private $user = "id22274485_garlicmedia";
+        private $pwd = "LetsGoWebDev1!";
+        private $dbName = "id22274485_garlic_media";
 
         protected function conn() {
             $dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->dbName;

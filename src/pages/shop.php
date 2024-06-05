@@ -216,7 +216,7 @@
             type: 'POST',
             data: postData,
             success: function (data) {
-                alert(data);
+				alert("Successfully added.");
             },
             error: function (xhr, status, error) {
                 console.error('AJAX Error: ' + status + ' - ' + error);

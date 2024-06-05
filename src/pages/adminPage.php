@@ -6,11 +6,10 @@
 
     $accView = new AccountView();
 
-    $request = $accView->getAllAccs($_SESSION['account_id']);
+    $request = $accView->getAccByCode($_SESSION['account_id']);
 
-
-	if($request['role'] != "admin") {
-		header("Location: ../../index.php");
+	if($request[0]['role'] != "admin") {
+		// header("Location: shop.php");
 	}
 
     $requestView = new RequestView();
@@ -102,7 +101,7 @@
             type: 'POST',
             data: postData,
             success: function (data) {
-                alert(data);
+                alert("Succesfully Updated");
             },
             error: function (xhr, status, error) {
                 console.error('AJAX Error: ' + status + ' - ' + error);

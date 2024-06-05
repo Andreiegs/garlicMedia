@@ -212,7 +212,7 @@
                 type: 'POST',
                 data: postData,
                 success: function (data) {
-                    alert(data);
+					alert("Successfully registered.");
                 },
                 error: function (xhr, status, error) {
                     console.error('AJAX Error: ' + status + ' - ' + error);

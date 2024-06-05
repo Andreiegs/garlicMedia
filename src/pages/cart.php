@@ -9,6 +9,10 @@
 	session_start();
 	include '../class/RequestView.php';
 
+	if(!isset($_POST['account_id'])) {
+		header("Location: login.php");
+	}
+
 	$requestView = new RequestView();
 ?>
 <!doctype html>
@@ -290,7 +294,7 @@
             type: 'POST',
             data: postData,
             success: function (data) {
-                alert(data);
+                alert("Successfully deleted.");
             },
             error: function (xhr, status, error) {
                 console.error('AJAX Error: ' + status + ' - ' + error);
