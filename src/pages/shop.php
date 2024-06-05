@@ -96,7 +96,7 @@
 				<div class="row">
 					<?php for($j = $i; $j < count($reqs); $j++) { ?>
 						<div class="col-12 col-md-4 col-lg-3 mb-5">
-							<a class="product-item" onclick="addItem(<?php echo $_SESSION['account_id']; ?>, <?php echo $reqs[$j]['id']; ?>, <?php echo $reqs[$j]['price']?>)">
+							<a class="product-item" onclick="addItem(<?php echo $reqs[$j]['id']; ?>, <?php echo $reqs[$j]['price']?>)">
 								<img src="../images/<?php echo $reqs[$j]['img_path']; ?>" class="img-fluid product-thumbnail">
 								<h3 class="product-title"><?php echo $reqs[$j]['name']; ?></h3>
 								<strong class="product-price">₱<?php echo $reqs[$j]['price']; ?></strong>
@@ -228,9 +228,8 @@
 
 </html>
 <script>
-	function addItem(acc_id, item_id, amount) {
+	function addItem(item_id, amount) {
 		let params = [
-            acc_id, 
 			item_id, 
 			1,
 			amount
