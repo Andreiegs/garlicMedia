@@ -88,14 +88,14 @@
         <input type="text" name="" id="firstName"><br>
         <label for="">Last Name:</label><br>
         <input type="text" name="" id="lastName"><br>
+		<label for="">Email: </label><br>
+        <input type="text" name="" id="email"><br>
         <label for="">Address: </label><br>
         <input type="text" name="" id="address"><br>
         <label for="">Contact Number:</label><br>
         <input type="text" name="" id="contactNo"><br>
-        <label for="">Password:</label><br>
-        <input type="password" name="" id="contactNo"><br>
-        <label for="">Confirm Password:</label><br>
-        <input type="password" name="" id="contactNo"><br><br>
+		<label for="">Passowrd:</label><br>
+        <input type="text" name="" id="password"><br><br>
         <button id="registerBtn">Register</button>
         <a href="login.php">Already have an account?</a>
     </div>
@@ -191,29 +191,28 @@
 </body>
 </html>
 <script>
-    $(document).ready(() => {
-        $("#loginBtn").on('click', () => {
+   $(document).ready(() => {
+        $("#registerBtn").on('click', () => {
             let params = [
+                $("#firstName").val(),
+                $("#lastName").val(),
                 $("#email").val(),
                 $("#password").val(),
+                $("#address").val(),
+                $("#contactNo").val(),
             ];
-            logAccount(params);
+            insertAccount(params);
         });
     });
 
-    function logAccount(params) {
-            let postData = {"log": params};
+    function insertAccount(params) {
+            let postData = {"insertParams": params};
             $.ajax({
                 url: '../api/account.php',
                 type: 'POST',
                 data: postData,
                 success: function (data) {
-                    if(data != 'false') {
-						// alert("Success! " + data);
-						window.location.replace("shop.php");
-					} else {
-						alert("Failed " + data);
-					}
+                    alert(data);
                 },
                 error: function (xhr, status, error) {
                     console.error('AJAX Error: ' + status + ' - ' + error);
