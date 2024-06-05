@@ -39,7 +39,7 @@
 		<nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
 
 			<div class="container">
-				<a class="navbar-brand" href="../../index.html">Garlic Media<span>.</span></a>
+				<a class="navbar-brand" href="../../index.php">Garlic Media<span>.</span></a>
 
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
@@ -48,16 +48,21 @@
 				<div class="collapse navbar-collapse" id="navbarsFurni">
 					<ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
 						<li class="nav-item ">
-							<a class="nav-link" href="../../index.html">Home</a>
+							<a class="nav-link" href="../../index.php">Home</a>
 						</li>
-						<li class="active"><a class="nav-link" href="../pages/shop.html">Shop</a></li>
-						<li><a class="nav-link" href="../pages/about.html">About us</a></li>
-						<li><a class="nav-link" href="../pages/contact.html">Contact us</a></li>
+						<li class="active"><a class="nav-link" href="../pages/shop.php">Shop</a></li>
+						<li><a class="nav-link" href="../pages/about.php">About us</a></li>
+						<li><a class="nav-link" href="../pages/contact.php">Contact us</a></li>
 					</ul>
 
 					<ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
+<<<<<<< Updated upstream
 						<li><a class="nav-link" href="login.html"><img src="../images/user.svg"></a></li>
 						<li><a class="nav-link" href="../pages/cart.html"><img src="../images/cart.svg"></a></li>
+=======
+						<li><a class="nav-link" href="login.php"><img src="../images/user.svg"></a></li>
+						<li><a class="nav-link" href="../pages/cart.php"><img src="../images/cart.svg"></a></li>
+>>>>>>> Stashed changes
 					</ul>
 				</div>
 			</div>
