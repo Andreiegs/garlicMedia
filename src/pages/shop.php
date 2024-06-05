@@ -1,24 +1,18 @@
-<?php 
-    session_start();
-?>
-
-    
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
-    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-</head>
-<body>
-    <!-- /*
+<!-- /*
 * Bootstrap 5
 * Template Name: Furni
 * Template Author: Untree.co
 * Template URI: https://untree.co/
 * License: https://creativecommons.org/licenses/by/3.0/
 */ -->
+
+<?php 
+	session_start();
+
+	include_once '../class/ItemView.php';
+
+	$itemView = new ItemView();
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -32,9 +26,10 @@
 
 		<!-- Bootstrap CSS -->
 		<link href="../css/bootstrap.min.css" rel="stylesheet">
-		<link href="../https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 		<link href="../css/tiny-slider.css" rel="stylesheet">
 		<link href="../css/style.css" rel="stylesheet">
+		<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 		<title>Garlic Media</title>
 	</head>
 
@@ -55,14 +50,14 @@
 						<li class="nav-item ">
 							<a class="nav-link" href="../../index.html">Home</a>
 						</li>
-						<li><a class="nav-link" href="shop.html">Shop</a></li>
-						<li><a class="nav-link" href="about.html">About us</a></li>
-						<li><a class="nav-link" href="contact.html">Contact us</a></li>
+						<li class="active"><a class="nav-link" href="../pages/shop.html">Shop</a></li>
+						<li><a class="nav-link" href="../pages/about.html">About us</a></li>
+						<li><a class="nav-link" href="../pages/contact.html">Contact us</a></li>
 					</ul>
 
 					<ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
 						<li><a class="nav-link" href="login.html"><img src="../images/user.svg"></a></li>
-						<li><a class="nav-link" href="cart.html"><img src="../images/cart.svg"></a></li>
+						<li><a class="nav-link" href="../pages/cart.html"><img src="../images/cart.svg"></a></li>
 					</ul>
 				</div>
 			</div>
@@ -70,31 +65,58 @@
 		</nav>
 		<!-- End Header/Navigation -->
 
+		<!-- Start Hero Section -->
+			<div class="hero">
+				<div class="container">
+					<div class="row justify-content-between">
+						<div class="col-lg-5">
+							<div class="intro-excerpt">
+								<h1>Shop</h1>
+							</div>
+						</div>
+						<div class="col-lg-7">
+							<div class="hero-img-wrap">
+							</div>
+							<div class="hero-img-wrap me-5">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		<!-- End Hero Section -->
+
 		
 
-		<div class="untree_co-section">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 text-center pt-5">
-            <h2 class="mb-5">Log In</h2>
-          <div id="form">
-            <label for="">Email:</label>
-            <input type="text" name="" id="email" required>
-            <label class="ml-3" for="">Password:</label>
-            <input type="password" name="" id="password" required>
-            <br>
-            <button id="loginBtn" class="btn mt-5">Login</button>
-            <br>
-            <a href="login.php" class = "mt-5">Register</a>
-        </div>
-        </div>
-      </div>
-    </div>
-  </div>
+		<div class="untree_co-section product-section before-footer-section">
+		    <div class="container">
+				<?php 
+					$reqs = $itemView->getAllItem();
+					for($i = 0; $i < count($reqs); $i += 4) {
+				?>
+				<div class="row">
+					<?php for($j = $i; $j < count($reqs); $j++) { ?>
+						<div class="col-12 col-md-4 col-lg-3 mb-5">
+							<a class="product-item" onclick="addItem(<?php echo $_SESSION['account_id']; ?>, <?php echo $reqs[$j]['id']; ?>, <?php echo $reqs[$j]['price']?>)">
+								<img src="../images/<?php echo $reqs[$j]['img_path']; ?>" class="img-fluid product-thumbnail">
+								<h3 class="product-title"><?php echo $reqs[$j]['name']; ?></h3>
+								<strong class="product-price">₱<?php echo $reqs[$j]['price']; ?></strong>
+
+								<span class="icon-cross">
+									<img src="../images/cross.svg" class="img-fluid">
+								</span>
+							</a>
+						</div> 
+					<?php 
+						}
+					?>
+				</div>
+				<?php 
+					}
+				?>	
 
 		<!-- Start Footer Section -->
-		<footer class="footer-section">
-			<div class="container relative">
+		<footer class="footer-section mt-5">
+			<div class="container relative mt-5">
 
 				<div class="sofa-img">
 					<img src="../images/sofa.png" alt="Image" class="img-fluid">
@@ -125,8 +147,8 @@
 
 				<div class="row g-5 mb-5">
 					<div class="col-lg-4">
-						<div class="mb-4 footer-logo-wrap"><a href="#" class="footer-logo">Furni<span>.</span></a></div>
-						<p class="mb-4">Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. Pellentesque habitant</p>
+						<div class="mb-4 footer-logo-wrap"><a href="#" class="footer-logo">Garlic Media<span>.</span></a></div>
+						<p class="mb-4">We bring your designs to life!</p>
 
 						<ul class="list-unstyled custom-social">
 							<li><a href="#"><span class="fa fa-brands fa-facebook-f"></span></a></li>
@@ -179,7 +201,7 @@
 				<div class="border-top copyright">
 					<div class="row pt-4">
 						<div class="col-lg-6">
-							<p class="mb-2 text-center text-lg-start">Copyright &copy;<script>document.write(new Date().getFullYear());</script>. All Rights Reserved. &mdash; Designed with love by <a href="https://untree.co">Untree.co</a> Distributed By <a href="https://themewagon.com">ThemeWagon</a> <!-- License information: https://untree.co/license/ -->
+							<p class="mb-2 text-center text-lg-start">Copyright &copy;<script>document.write(new Date().getFullYear());</script>. All Rights Reserved. &mdash; Designed with love by <a href="https://untree.co">Untree.co</a> Distributed By <a hreff="https://themewagon.com">ThemeWagon</a>  <!-- License information: https://untree.co/license/ -->
             </p>
 						</div>
 
@@ -198,44 +220,32 @@
 		<!-- End Footer Section -->	
 
 
+
 		<script src="../js/bootstrap.bundle.min.js"></script>
 		<script src="../js/tiny-slider.js"></script>
 		<script src="../js/custom.js"></script>
 	</body>
 
 </html>
-
-    
-</body>
-</html>
 <script>
-    $(document).ready(() => {
-        $("#loginBtn").on('click', () => {
-            let params = [
-                $("#email").val(),
-                $("#password").val(),
-            ];
-            logAccount(params);
+	function addItem(acc_id, item_id, amount) {
+		let params = [
+            acc_id, 
+			item_id, 
+			1,
+			amount
+        ];
+        let postData = {"insert": params};
+        $.ajax({
+            url: '../api/request.php',
+            type: 'POST',
+            data: postData,
+            success: function (data) {
+                alert(data);
+            },
+            error: function (xhr, status, error) {
+                console.error('AJAX Error: ' + status + ' - ' + error);
+            }
         });
-    });
-
-    function logAccount(params) {
-            let postData = {"log": params};
-            $.ajax({
-                url: '../api/account.php',
-                type: 'POST',
-                data: postData,
-                success: function (data) {
-                    if(data != false) {
-						// alert("Success! " + data);
-						window.location.replace("shop.php");
-					} else {
-						alert("Failed " + data);
-					}
-                },
-                error: function (xhr, status, error) {
-                    console.error('AJAX Error: ' + status + ' - ' + error);
-                }
-            });
-        }
+	}
 </script>
