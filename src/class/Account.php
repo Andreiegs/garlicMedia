@@ -1,7 +1,7 @@
 <?php 
     session_start();
 
-    include 'dbh.php';
+    include_once 'dbh.php';
     
     class Account extends dbh {
 

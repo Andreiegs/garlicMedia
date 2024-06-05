@@ -1,6 +1,17 @@
 <?php
-    session_start();
+    include_once '../class/AccountView.php';
     include_once '../class/RequestView.php';
+
+    
+
+    $accView = new AccountView();
+
+    $request = $accView->getAllAccs($_SESSION['account_id']);
+
+
+	if($request['role'] != "admin") {
+		header("Location: ../../index.php");
+	}
 
     $requestView = new RequestView();
 ?>
@@ -72,6 +83,7 @@
                 ?>
             </tbody>
         </table>
+		  <a href="logout.php"><button class="btn bg-danger">Log out</button></a>
     </div>
 
     <script>

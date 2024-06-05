@@ -10,6 +10,7 @@
 	session_start();
 
 	include_once '../class/ItemView.php';
+	$attribute = "";
 
 	$itemView = new ItemView();
 ?>
@@ -84,9 +85,6 @@
 				</div>
 			</div>
 		<!-- End Hero Section -->
-
-		
-
 		<div class="untree_co-section product-section before-footer-section">
 		    <div class="container">
 				<?php 
@@ -96,7 +94,14 @@
 				<div class="row">
 					<?php for($j = $i; $j < count($reqs); $j++) { ?>
 						<div class="col-12 col-md-4 col-lg-3 mb-5">
-							<a class="product-item" onclick="addItem(<?php echo $_SESSION['account_id']; ?>, <?php echo $reqs[$j]['id']; ?>, <?php echo $reqs[$j]['price']?>)">
+							<?php
+							if(isset($_SESSION['account_id'])) {
+								$attribute = "onclick=\"addItem(" . $_SESSION['account_id'] . ", " . $reqs[$j]['id'] . ", " . $reqs[$j]['price'] . ");\"";
+							} else {
+								$attribute = "onclick='window.location.replace(\"login.php\")'";
+							}
+							?>
+							<a class="product-item" <?php echo $attribute ?>>
 								<img src="../images/<?php echo $reqs[$j]['img_path']; ?>" class="img-fluid product-thumbnail">
 								<h3 class="product-title"><?php echo $reqs[$j]['name']; ?></h3>
 								<strong class="product-price">₱<?php echo $reqs[$j]['price']; ?></strong>
@@ -116,33 +121,10 @@
 
 		<!-- Start Footer Section -->
 		<footer class="footer-section mt-5">
-			<div class="container relative mt-5">
+			<div class="container relative">
 
 				<div class="sofa-img">
 					<img src="../images/sofa.png" alt="Image" class="img-fluid">
-				</div>
-
-				<div class="row">
-					<div class="col-lg-8">
-						<div class="subscription-form">
-							<h3 class="d-flex align-items-center"><span class="me-1"><img src="../images/envelope-outline.svg" alt="Image" class="img-fluid"></span><span>Subscribe to Newsletter</span></h3>
-
-							<form action="#" class="row g-3">
-								<div class="col-auto">
-									<input type="text" class="form-control" placeholder="Enter your name">
-								</div>
-								<div class="col-auto">
-									<input type="email" class="form-control" placeholder="Enter your email">
-								</div>
-								<div class="col-auto">
-									<button class="btn btn-primary">
-										<span class="fa fa-paper-plane"></span>
-									</button>
-								</div>
-							</form>
-
-						</div>
-					</div>
 				</div>
 
 				<div class="row g-5 mb-5">
@@ -173,7 +155,7 @@
 								<ul class="list-unstyled">
 									<li><a href="#">Support</a></li>
 									<li><a href="#">Knowledge base</a></li>
-									<li><a href="#">Live chat</a></li>
+									<li><a href="adminPage.php">Admin Page</a></li>
 								</ul>
 							</div>
 
@@ -186,13 +168,6 @@
 								</ul>
 							</div>
 
-							<div class="col-6 col-sm-6 col-md-3">
-								<ul class="list-unstyled">
-									<li><a href="#">Nordic Chair</a></li>
-									<li><a href="#">Kruzo Aero</a></li>
-									<li><a href="#">Ergonomic Chair</a></li>
-								</ul>
-							</div>
 						</div>
 					</div>
 
@@ -230,7 +205,7 @@
 <script>
 	function addItem(acc_id, item_id, amount) {
 		let params = [
-            acc_id, 
+			acc_id,
 			item_id, 
 			1,
 			amount
