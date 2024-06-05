@@ -5,9 +5,9 @@ include_once 'Request.php';
 
 class RequestControl extends Request {
 
-    // public function updateAcc($params) {
-    //     $this->updateRequest($params);
-    // }
+    public function updateStat($params) {
+        $this->updateStatus($params);
+    }
 
     public function insertReq($params) {
         $this->insertRequest($params);

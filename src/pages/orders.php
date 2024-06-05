@@ -100,16 +100,25 @@
                                 <th>Order ID</th>
                                 <th>Products</th>
                                 <th>Price</th>
+                                <th>Qty.</th>
                                 <th>Stauts</th>
                             </tr>
                         </thead>
                         <tbody>
+							<?php 
+								$reqs = $requestView->getOrderss($_SESSION['account_id']);
+								foreach($reqs as $r):
+							?>
                             <tr>
-                                <td>a</td>
-                                <td>a</td>
-                                <td>a</td>
-                                <td>a</td>
+                                <td><?= $r['id'];?></td>
+                                <td><img src="../images/<?= $r['img_path'];?>" alt="" style="height: 10vw"><?= $r['name'];?></td>
+                                <td><?= ($r['price'] * $r['quantity']);?></td>
+                                <td><?= $r['quantity'];?></td>
+                                <td><?= $r['status'];?></td>
                             </tr>
+							<?php 
+								endforeach;
+							?>
                         </tbody>
                     </table>
                   </div>

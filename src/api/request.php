@@ -13,4 +13,8 @@
         echo json_encode($request->deleteReq($_POST['delete']));
     }
 
+    if (isset($_POST["update"])) {
+        echo json_encode($request->updateStat($_POST['update']));
+    }
+
 ?>

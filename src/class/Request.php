@@ -6,7 +6,18 @@
 
         protected function getAllRequests() {
             $sql = "SELECT *
-            FROM request";
+            FROM request JOIN item on request.item_id = item.id";
+            $stmt = $this->conn()->prepare($sql);
+            $stmt->execute();
+
+            $counts = $stmt->fetchAll();
+
+            return $counts;
+        }
+
+        protected function getAllRequestsAdmin() {
+            $sql = "SELECT request.id as request_id, item.img_path, item.name, item.price, request.quantity, request.status
+            FROM request JOIN item on request.item_id = item.id";
             $stmt = $this->conn()->prepare($sql);
             $stmt->execute();
 
@@ -29,6 +40,20 @@
             return $counts;
         }
 
+        protected function getOrders($id) {
+            $sql = "SELECT request.id, item.img_path, item.name, item.price, request.quantity, request.status
+            FROM request 
+            JOIN item
+            ON request.item_id = item.id
+            WHERE account_id = $id";
+            $stmt = $this->conn()->prepare($sql);
+            $stmt->execute();
+
+            $counts = $stmt->fetchAll();
+
+            return $counts;
+        }
+
         protected function getRequestByID($id) {
             $sql = "SELECT *
             FROM request WHERE id LIKE ?";
@@ -40,12 +65,14 @@
             return $counts;
         }
 
-        // protected function updateCount($id) {
-        //     $sql = "UPDATE request SET status = ?
-        //         WHERE id = ?";
-        //     $stmt = $this->conn()->prepare($sql);
-        //     $stat = $stmt->execute($params);
-        // }
+        protected function updateStatus($params) {
+            $sql = "UPDATE request SET status = ?
+                WHERE id = ?";
+            $stmt = $this->conn()->prepare($sql);
+            $stat = $stmt->execute($params);
+
+            return $stat;
+        }
 
         protected function insertRequest($params) {
             $requests = $this->getAllRequests();
