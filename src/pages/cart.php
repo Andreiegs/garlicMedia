@@ -38,7 +38,7 @@
 		<nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
 
 			<div class="container">
-				<a class="navbar-brand" href="../../index.html">Garlic Media<span>.</span></a>
+				<a class="navbar-brand" href="../../index.php">Garlic Media<span>.</span></a>
 
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
@@ -47,16 +47,21 @@
 				<div class="collapse navbar-collapse" id="navbarsFurni">
 					<ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
 						<li class="nav-item ">
-							<a class="nav-link" href="../../index.html">Home</a>
+							<a class="nav-link" href="../../index.php">Home</a>
 						</li>
-						<li><a class="nav-link" href="shop.html">Shop</a></li>
-						<li><a class="nav-link" href="about.html">About us</a></li>
-						<li><a class="nav-link" href="contact.html">Contact us</a></li>
+						<li><a class="nav-link" href="shop.php">Shop</a></li>
+						<li><a class="nav-link" href="about.php">About us</a></li>
+						<li><a class="nav-link" href="contact.php">Contact us</a></li>
 					</ul>
 
 					<ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
+<<<<<<< Updated upstream
 						<li><a class="nav-link" href="login.html"><img src="../images/user.svg"></a></li>
 						<li><a class="nav-link" href="cart.html"><img src="../images/cart.svg"></a></li>
+=======
+						<li><a class="nav-link" href="login.php"><img src="../images/user.svg"></a></li>
+						<li><a class="nav-link" href="cart.php"><img src="../images/cart.svg"></a></li>
+>>>>>>> Stashed changes
 					</ul>
 				</div>
 			</div>
@@ -143,7 +148,7 @@
                     <div class="col-md-6 mb-3 mb-md-0">
                     </div>
                     <div class="col-md-6">
-                      <a href="../../index.html"></a><button class="btn btn-outline-black btn-sm btn-block">Continue Shopping</button></a>
+                      <a href="../../index.php"></a><button class="btn btn-outline-black btn-sm btn-block">Continue Shopping</button></a>
                     </div>
                   </div>
                   <div class="row">
@@ -178,7 +183,7 @@
         
                       <div class="row">
                         <div class="col-md-12">
-                          <button class="btn btn-black btn-lg py-3 btn-block" onclick="window.location='checkout.html'">Proceed To Checkout</button>
+                          <button class="btn btn-black btn-lg py-3 btn-block" onclick="window.location='checkout.php'">Proceed To Checkout</button>
                         </div>
                       </div>
                     </div>
