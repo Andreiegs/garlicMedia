@@ -91,7 +91,11 @@
         <label for="">Address: </label><br>
         <input type="text" name="" id="address"><br>
         <label for="">Contact Number:</label><br>
-        <input type="text" name="" id="contactNo"><br><br>
+        <input type="text" name="" id="contactNo"><br>
+        <label for="">Password:</label><br>
+        <input type="password" name="" id="contactNo"><br>
+        <label for="">Confirm Password:</label><br>
+        <input type="password" name="" id="contactNo"><br><br>
         <button id="registerBtn">Register</button>
         <a href="login.php">Already have an account?</a>
     </div>
