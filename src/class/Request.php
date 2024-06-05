@@ -26,6 +26,20 @@
             return $counts;
         }
 
+        protected function getCart($id) {
+            $sql = "SELECT *
+            FROM request 
+            JOIN item 
+            ON request.item_id = item.id
+            WHERE account_id = ?";
+            $stmt = $this->conn()->prepare($sql);
+            $stmt->execute([$id]);
+
+            $counts = $stmt->fetchAll();
+
+            return $counts;
+        }
+
         // protected function updateCount($params) {
         //     $sql = "UPDATE request SET Name = ?, Continent = ?,
         //      SurfaceArea = ?, Population = ?, GovernmentForm = ?

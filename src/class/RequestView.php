@@ -11,6 +11,10 @@ include_once 'Request.php';
         public function getAccByCode($countryCode) {
             return $this->getRequestByID($countryCode);
         }
+
+        public function getCartItems($id) {
+            return $this->getCart($id);
+        }
     }
 
 ?>
