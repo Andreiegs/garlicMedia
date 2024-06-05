@@ -56,13 +56,8 @@
 					</ul>
 
 					<ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
-<<<<<<< Updated upstream
-						<li><a class="nav-link" href="login.html"><img src="../images/user.svg"></a></li>
-						<li><a class="nav-link" href="../pages/cart.html"><img src="../images/cart.svg"></a></li>
-=======
 						<li><a class="nav-link" href="login.php"><img src="../images/user.svg"></a></li>
 						<li><a class="nav-link" href="../pages/cart.php"><img src="../images/cart.svg"></a></li>
->>>>>>> Stashed changes
 					</ul>
 				</div>
 			</div>
