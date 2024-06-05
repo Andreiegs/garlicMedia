@@ -97,6 +97,8 @@
 							<?php
 							if(isset($_SESSION['account_id'])) {
 								$attribute = "onclick=\"addItem(" . $_SESSION['account_id'] . ", " . $reqs[$j]['id'] . ", " . $reqs[$j]['price'] . ");\"";
+							} else {
+								$attribute = "onclick='window.location.replace(\"login.php\")'";
 							}
 							?>
 							<a class="product-item" <?php echo $attribute ?>>
