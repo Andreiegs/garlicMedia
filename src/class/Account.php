@@ -36,7 +36,7 @@
             $counts = $stmt->fetchAll();
 
             if($counts != false) {
-                $_SESSION['student_id'] = $counts[0]['id'];    
+                $_SESSION['account_id'] = $counts[0]['id'];    
                 return true;
             }
 

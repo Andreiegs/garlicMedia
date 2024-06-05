@@ -44,7 +44,7 @@
 
     function addRequest(i, id, price) {
         let params = [
-            <?php echo $_SESSION['student_id']; ?>,
+            <?php echo $_SESSION['account_id']; ?>,
             id,
             $("#qty" + i).val(),
             price * $("#qty" + i).val(),
