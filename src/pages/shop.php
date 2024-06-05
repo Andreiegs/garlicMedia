@@ -56,7 +56,7 @@
 
 					<ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
 						<li><a class="nav-link" href="login.html"><img src="../images/user.svg"></a></li>
-						<li><a class="nav-link" href="../pages/cart.html"><img src="../images/cart.svg"></a></li>
+						<li><a class="nav-link" href="../pages/cart.php"><img src="../images/cart.svg"></a></li>
 					</ul>
 				</div>
 			</div>
@@ -89,7 +89,7 @@
 		<div class="untree_co-section product-section before-footer-section">
 		    <div class="container">
 				<?php 
-					$reqs = $requestView->getCartItems($_SESSION['student_id']);
+					$reqs = $requestView->getCartItems($_SESSION['account_id']);
 					for($i = 0; $i < count($reqs); $i += 4) {
 				?>
 				<div class="row">
