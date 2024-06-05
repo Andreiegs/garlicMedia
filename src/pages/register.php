@@ -85,13 +85,13 @@
 <body>
     <div id="form">
         <label for="">First Name:</label>
-        <input type="text" name="" id="firstName">
+        <input type="text" name="" id="firstName"><br>
         <label for="">Last Name:</label>
-        <input type="text" name="" id="lastName">
+        <input type="text" name="" id="lastName"><br>
         <label for="">Address: </label>
-        <input type="text" name="" id="address">
+        <input type="text" name="" id="address"><br>
         <label for="">Contact Number:</label>
-        <input type="text" name="" id="contactNo">
+        <input type="text" name="" id="contactNo"><br>
         <button id="registerBtn">Register</button>
         <a href="login.php">Already have an account?</a>
     </div>
