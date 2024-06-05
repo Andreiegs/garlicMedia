@@ -64,7 +64,7 @@
 							<div class="intro-excerpt">
 								<h1>Quality Prints <br> Premium Designs</h1>
 								<p class="mb-4">We see your visions, make your dreams a reality, and bring your designs to life.</p>
-								<p><a href="" class="btn btn-secondary me-2">Shop Now</a><a href="#" class="btn btn-white-outline">Explore</a></p>
+								<p><a href="src/pages/shop.php" class="btn btn-secondary me-2">Shop Now</a><a href="src/pages/shop.php" class="btn btn-white-outline">Explore</a></p>
 							</div>
 						</div>
 						<div class="col-lg-7">
@@ -164,7 +164,7 @@
 							<li>Souvenirs</li>
 							<li>Tshirts</li>
 						</ul>
-						<p><a herf="#" class="btn">Explore</a></p>
+						<p><a herf="src/pages/shop.php" class="btn">Explore</a></p>
 					</div>
 				</div>
 			</div>
