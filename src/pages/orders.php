@@ -111,7 +111,7 @@
                         </thead>
                         <tbody>
 							<?php 
-								$reqs = $requestView->getOrders($_SESSION['account_id']);
+								$reqs = $requestView->getOrderss($_SESSION['account_id']);
 								foreach($reqs as $r):
 							?>
                             <tr>

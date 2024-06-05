@@ -1,6 +1,6 @@
 <?php 
 
-    include 'dbh.php';
+    include_once 'dbh.php';
     
     class Request extends dbh {
 

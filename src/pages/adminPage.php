@@ -10,7 +10,7 @@
 
 
 	if($request['role'] != "admin") {
-		header("Location: ../../index.php");
+		header("Location: shop.php");
 	}
 
     $requestView = new RequestView();

@@ -9,6 +9,10 @@
 	session_start();
 	include '../class/RequestView.php';
 
+	if(!isset($_POST['account_id'])) {
+		header("Location: login.php");
+	}
+
 	$requestView = new RequestView();
 ?>
 <!doctype html>
