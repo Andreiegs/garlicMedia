@@ -42,6 +42,7 @@
                     <th>Products</th>
                     <th>Price</th>
                     <th>Status</th>
+                    <th></th><th></th>
                 </tr>
             </thead>
             <tbody>
@@ -50,21 +51,23 @@
                     <td>test</td>
                     <td>test</td>
                     <td>test</td>
-                    <td>shipping</td>
+                    <td>shipping</td><td></td><td></td>
                 </tr>
                 <tr>
                     <td>test</td>
                     <td>test</td>
                     <td>test</td>
                     <td>test</td>
-                    <td>cancelled</td>
+                    <td>cancelled</td><td></td><td></td>
                 </tr>
                 <tr>
                     <td>test</td>
                     <td>test</td>
                     <td>test</td>
                     <td>test</td>
-                    <td>pending</td>
+                    <td>pending 
+                        <td><button class="badge bg-success mx-3">Approve</button></td>
+                        <td><button class="badge bg-danger mx-3">Deny</button></td></td>
                 </tr>
             </tbody>
         </table>
