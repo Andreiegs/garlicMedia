@@ -5,6 +5,14 @@
 * Template URI: https://untree.co/
 * License: https://creativecommons.org/licenses/by/3.0/
 */ -->
+
+<?php 
+	session_start();
+
+	include_once '../class/ItemView.php';
+
+	$itemView = new ItemView();
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -21,6 +29,7 @@
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 		<link href="../css/tiny-slider.css" rel="stylesheet">
 		<link href="../css/style.css" rel="stylesheet">
+		<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 		<title>Garlic Media</title>
 	</head>
 
@@ -30,7 +39,7 @@
 		<nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
 
 			<div class="container">
-				<a class="navbar-brand" href="../../index.html">Garlic Media<span>.</span></a>
+				<a class="navbar-brand" href="../../index.php">Garlic Media<span>.</span></a>
 
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
@@ -39,16 +48,16 @@
 				<div class="collapse navbar-collapse" id="navbarsFurni">
 					<ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
 						<li class="nav-item ">
-							<a class="nav-link" href="../../index.html">Home</a>
+							<a class="nav-link" href="../../index.php">Home</a>
 						</li>
-						<li class="active"><a class="nav-link" href="../pages/shop.html">Shop</a></li>
-						<li><a class="nav-link" href="../pages/about.html">About us</a></li>
-						<li><a class="nav-link" href="../pages/contact.html">Contact us</a></li>
+						<li class="active"><a class="nav-link" href="../pages/shop.php">Shop</a></li>
+						<li><a class="nav-link" href="../pages/about.php">About us</a></li>
+						<li><a class="nav-link" href="../pages/contact.php">Contact us</a></li>
 					</ul>
 
 					<ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
-						<li><a class="nav-link" href="login.html"><img src="../images/user.svg"></a></li>
-						<li><a class="nav-link" href="../pages/cart.html"><img src="../images/cart.svg"></a></li>
+						<li><a class="nav-link" href="login.php"><img src="../images/user.svg"></a></li>
+						<li><a class="nav-link" href="../pages/cart.php"><img src="../images/cart.svg"></a></li>
 					</ul>
 				</div>
 			</div>
@@ -80,64 +89,30 @@
 
 		<div class="untree_co-section product-section before-footer-section">
 		    <div class="container">
-		      	<div class="row">
+				<?php 
+					$reqs = $itemView->getAllItem();
+					for($i = 0; $i < count($reqs); $i += 4) {
+				?>
+				<div class="row">
+					<?php for($j = $i; $j < count($reqs); $j++) { ?>
+						<div class="col-12 col-md-4 col-lg-3 mb-5">
+							<a class="product-item" onclick="addItem(<?php echo $_SESSION['account_id']; ?>, <?php echo $reqs[$j]['id']; ?>, <?php echo $reqs[$j]['price']?>)">
+								<img src="../images/<?php echo $reqs[$j]['img_path']; ?>" class="img-fluid product-thumbnail">
+								<h3 class="product-title"><?php echo $reqs[$j]['name']; ?></h3>
+								<strong class="product-price">₱<?php echo $reqs[$j]['price']; ?></strong>
 
-		      		<!-- Start Column 1 -->
-					<div class="col-12 col-md-4 col-lg-3 mb-5">
-						<a class="product-item" href="#">
-							<img src="../images/tshirt.png" class="img-fluid product-thumbnail">
-							<h3 class="product-title">T-Shirt</h3>
-							<strong class="product-price">₱500.00</strong>
-
-							<span class="icon-cross">
-								<img src="../images/cross.svg" class="img-fluid">
-							</span>
-						</a>
-					</div> 
-					<!-- End Column 1 -->
-						
-					<!-- Start Column 2 -->
-					<div class="col-12 col-md-4 col-lg-3 mb-5">
-						<a class="product-item" href="#">
-							<img src="../images/poloShirt.png" class="img-fluid product-thumbnail">
-							<h3 class="product-title">Polo Shirt</h3>
-							<strong class="product-price">₱750.00</strong>
-
-							<span class="icon-cross">
-								<img src="../images/cross.svg" class="img-fluid">
-							</span>
-						</a>
-					</div> 
-					<!-- End Column 2 -->
-
-					<!-- Start Column 3 -->
-					<div class="col-12 col-md-4 col-lg-3 mb-5">
-						<a class="product-item" href="#">
-							<img src="../images/sweatshirt.png" class="img-fluid product-thumbnail">
-							<h3 class="product-title">Sweatshirt</h3>
-							<strong class="product-price">₱950.00</strong>
-
-							<span class="icon-cross">
-								<img src="../images/cross.svg" class="img-fluid">
-							</span>
-						</a>
-					</div>
-					<!-- End Column 3 -->
-
-					<!-- Start Column 4 -->
-					<div class="col-12 col-md-4 col-lg-3 mb-5">
-						<a class="product-item" href="#">
-							<img src="../images/hoodie.png" class="img-fluid product-thumbnail">
-							<h3 class="product-title">Hoodie</h3>
-							<strong class="product-price">₱950.00</strong>
-
-							<span class="icon-cross">
-								<img src="../images/cross.svg" class="img-fluid">
-							</span>
-						</a>
-					</div>
-					<!-- End Column 4 -->
-
+								<span class="icon-cross">
+									<img src="../images/cross.svg" class="img-fluid">
+								</span>
+							</a>
+						</div> 
+					<?php 
+						}
+					?>
+				</div>
+				<?php 
+					}
+				?>	
 
 		<!-- Start Footer Section -->
 		<footer class="footer-section mt-5">
@@ -252,3 +227,25 @@
 	</body>
 
 </html>
+<script>
+	function addItem(acc_id, item_id, amount) {
+		let params = [
+            acc_id, 
+			item_id, 
+			1,
+			amount
+        ];
+        let postData = {"insert": params};
+        $.ajax({
+            url: '../api/request.php',
+            type: 'POST',
+            data: postData,
+            success: function (data) {
+                alert(data);
+            },
+            error: function (xhr, status, error) {
+                console.error('AJAX Error: ' + status + ' - ' + error);
+            }
+        });
+	}
+</script>

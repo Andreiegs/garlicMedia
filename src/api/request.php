@@ -9,4 +9,8 @@
         echo json_encode($request->insertReq($_POST['insert']));
     }
 
+    if (isset($_POST["delete"])) {
+        echo json_encode($request->deleteReq($_POST['delete']));
+    }
+
 ?>
